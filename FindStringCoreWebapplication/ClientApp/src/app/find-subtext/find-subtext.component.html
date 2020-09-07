@@ -1,0 +1,43 @@
+<h1>Find Subtext in Text</h1>
+
+<div>
+  <p>
+    The application must provide a GUI which:
+  </p>
+  <ul>
+    <li>
+      Accepts two strings as input: one string is called "text" and the other is called "subtext" in this problem statement
+    </li>
+    <li>Has a button which will match the subtext against the text, outputting the character positions of the beginning of each match for the subtext within the text.</li>
+    <li>The matching algorithm must allow multiple matches and case insensitive matching</li>
+  </ul>
+</div>
+
+<div class="divBorder">
+  <div class="form-group row">
+    <label for="fullText" class="col-sm-2 col-form-label">Text : </label>
+    <div class="col-sm-10">
+      <input class="form-control" placeholder="Please enter text" value="" [(ngModel)]="fullText" required />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="subText" class="col-sm-2 col-form-label">Sub Text : </label>
+    <div class="col-sm-10">
+      <input class="form-control" placeholder="Please enter subtext" value="" [(ngModel)]="subText" required />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-3">
+      <button type="submit" class="btn btn-primary" [disabled]="!fullText || !subText" (click)="searchSubtextInText(fullText,subText)">Search subtext against the text</button>
+    </div>
+    <div class="col-sm-offset-2 col-sm-4">
+      <button type="reset" class="btn btn-primary" (click) = "clear()">Clear</button>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <label class="col-sm-12 col-form-label" *ngIf="IsSucessMessageVisible">The character positions of the beginning of each match for the subtext within the text : <strong>{{ allMatches }}</strong> </label>
+      <label class="col-sm-12 col-form-label" *ngIf="IsErrorMessageVisible"><strong>Searched subtext does not exists in Text</strong> </label>
+    </div>
+  </div>
+</div>
